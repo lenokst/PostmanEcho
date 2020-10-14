@@ -16,7 +16,7 @@ public class PostmanEchoTest {
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("headers", hasKey("noHost"))
+                .body("headers", hasKey("host"))
         ;
     }
 }
