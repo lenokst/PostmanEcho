@@ -3,11 +3,12 @@ package ru.netology;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.hasKey;
+import static org.hamcrest.Matchers.equalTo;
+
 
 public class PostmanEchoTest {
     @Test
-    void returnKey() {
+    void returnSomeData() {
 
         given()
                 .baseUri("https://postman-echo.com")
@@ -16,7 +17,7 @@ public class PostmanEchoTest {
                 .post("/post")
                 .then()
                 .statusCode(200)
-                .body("headers", hasKey("host"))
+                .body("data", equalTo("some data"))
         ;
     }
 }
